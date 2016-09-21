@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 app.get('/request-one',function(req,res){
-    res.send('request-one registered and vil be sent')
+     res.sendFile(path.join(__dirname, 'ui', 'request-one.html'));
 });
 app.get('/request-two',function(req,res){
     res.send('request-two registered and vil be sent');
