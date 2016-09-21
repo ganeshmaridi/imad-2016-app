@@ -6,13 +6,13 @@ var app = express();
 app.use(morgan('combined'));
 
 app.get('/request-one',function(req,res){
-    res.send('reequest-one registered and vil be sent')
+    res.send('reequest-one registered and vil be sent');
 });
 app.get('/request-two',function(req,res){
-    res.send('reequest-two registered and vil be sent')
+    res.send('reequest-two registered and vil be sent');
 });
 app.get('/request-three',function(req,res){
-    res.send('reequest-three registered and vil be sent')
+    res.send('reequest-three registered and vil be sent');
 });
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
