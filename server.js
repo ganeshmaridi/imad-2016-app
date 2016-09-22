@@ -81,7 +81,7 @@ function createTemplate(data){
     return htmlTemplate;
 }    
 app.get('/:requestName',function(req,res){
-     var articleName=req.params.articleName;
+     var requestName=req.params.requestName;
      res.send(createTemplate(articles[requestName]));
 });
 
