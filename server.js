@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var request-one={
+var requestone={
     title:'request-one||ganesh',
     heading:'request-one',
     date:'sept5,2016',
@@ -70,7 +70,7 @@ function createTemplate(data){
 
 
 app.get('/request-one',function(req,res){
-     res.send(createTemplate(request-one));
+     res.send(createTemplate(requestone));
 });
 app.get('/request-two',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'request-two.html'));
