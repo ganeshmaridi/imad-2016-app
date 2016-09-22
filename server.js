@@ -5,29 +5,47 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
-var requestone={
-    title:'request-one||ganesh',
-    heading:'request-one',
-    date:'sept5,2016',
-    content:`
-            <p>
-                need some content hereneed some content hereneed some content hereneed some content herevneed some content herevvvvneed some content hereneed some content hereneed some content herev
-                need some content hereneed some content herevvneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here
-                need some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here.
-            </p>
-            <p>
-                need some content hereneed some content hereneed some content hereneed some content herevneed some content herevvvvneed some content hereneed some content hereneed some content herev
-                need some content hereneed some content herevvneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here
-                need some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here.
-            </p>
-            <p>
-                need some content hereneed some content hereneed some content hereneed some content herevneed some content herevvvvneed some content hereneed some content hereneed some content herev
-                need some content hereneed some content herevvneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here
-                need some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here.
-            </p>`
-};            
-
+var articles={
+    'request-one':{
+        title:'request-one||ganesh',
+        heading:'request-one',
+        date:'sept5,2016',
+        content:`
+                <p>
+                    need some content hereneed some content hereneed some content hereneed some content herevneed some content herevvvvneed some content hereneed some content hereneed some content herev
+                    need some content hereneed some content herevvneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here
+                    need some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here.
+                </p>
+                <p>
+                    need some content hereneed some content hereneed some content hereneed some content herevneed some content herevvvvneed some content hereneed some content hereneed some content herev
+                    need some content hereneed some content herevvneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here
+                    need some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here.
+                </p>
+                <p>
+                    need some content hereneed some content hereneed some content hereneed some content herevneed some content herevvvvneed some content hereneed some content hereneed some content herev
+                    need some content hereneed some content herevvneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here
+                    need some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content hereneed some content here.
+                </p>`
+    },          
+    'request-two':{
+        title:'request-two||ganesh',
+        heading:'request-two',
+        date:'sept10,2016',
+        content:`
+                <p>
+                    this content is based on request two    
+               </p>`
+    },
+    'request-three':{
+        title:'request-three||ganesh',
+        heading:'request-three',
+        date:'sept15,2016',
+        content:`
+                <p>
+                this content is based on request-three
+                </p>`
+    }
+};    
 
 function createTemplate(data){
     var title=data.title;
@@ -62,22 +80,11 @@ function createTemplate(data){
     `; 
     return htmlTemplate;
 }    
-
-    
-
-
-
-
-
-app.get('/request-one',function(req,res){
-     res.send(createTemplate(requestone));
+app.get('/:requestName',function(req,res){
+     var articleName=req.params.articleName;
+     res.send(createTemplate(articles[requestName]));
 });
-app.get('/request-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'request-two.html'));
-});
-app.get('/request-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'request-three.html'));
-});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
