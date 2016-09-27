@@ -4,7 +4,11 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
+var counter=0;
+app.get('/counter',function(req,res){
+  counter=counter+1;
+  res.send(counter.toString());
+});
 var articles={
     'request-one':{
         title:'request-one||ganesh',
@@ -84,11 +88,7 @@ app.get('/:requestName',function(req,res){
      var requestName=req.params.requestName;
      res.send(createTemplate(articles[requestName]));
 });
-var counter=0;
-app.get('/counter',function(req,res){
-  counter=counter+1;
-  res.send(counter.toString());
-});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
