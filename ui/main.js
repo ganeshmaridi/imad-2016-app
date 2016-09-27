@@ -14,7 +14,7 @@ button.onclick=function()
             }
         }
     };
-    request.open('GET','http://ganeshmaridi.imad.hasura-app.io/counter',true);
+    request.open('GET','ganeshmaridi.imad.hasura-app.io/counter',true);
     request.send(null);
     
     
