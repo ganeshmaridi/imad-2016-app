@@ -16,11 +16,9 @@ button.onclick=function()
     };
     request.open('GET','ganeshmaridi.imad.hasura-app.io/counter',true);
     request.send(null);
-    
-    
 };
 var nameInput=document.getElementById('name');
-nameInput=name.value;
+var name=nameInput.value;
 var submit=document.getElementById('sub-btn');
 submit.onclick=function() 
 {
